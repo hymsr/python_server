@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify
+from controller.test import test
 import json
 app = Flask(__name__)
-
-@app.route('/', methods=['POST'])
-def hello_world():
-  return jsonify(request.json)
+# 注册模块
+app.register_blueprint(test, url_prefix='/test')
